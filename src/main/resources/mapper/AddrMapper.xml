@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.icloudbadguy.aizaowu.dao.AddrDao">
+    <select id="getAddrInformationById" resultType="xyz.icloudbadguy.aizaowu.entity.Addr">
+        select
+          *
+        from
+          demo_addr
+        where
+          id=#{arg0}
+    </select>
+    <insert id="addAddrInformation" parameterType="xyz.icloudbadguy.aizaowu.entity.Addr">
+        insert INTO
+          demo_addr
+        values(#{id},#{userId},#{name},#{mobile},#{addr},#{isDefault},#{postNum})
+    </insert>
+    <update id="modifyAddrInformation" parameterType="xyz.icloudbadguy.aizaowu.entity.Addr">
+        update
+          demo_addr
+        SET
+          user_id=#{userId},`name`=#{name},mobile=#{mobile},addr=#{addr},is_default=#{isDefault},post_num=#{postNum}
+        WHERE
+          id=#{id}
+    </update>
+    <delete id="delAddrByaddrId">
+        DELETE
+        from
+          demo_addr
+        WHERE
+          id=#{arg0}
+    </delete>
+    <!--<select id="queryArticleList" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article ORDER BY article_create DESC-->
+    <!--</select>-->
+    <!--<select id="queryArticleById" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article WHERE id=#{articleId}-->
+    <!--</select>-->
+    <!--<insert id="insertArticle">-->
+        <!--INSERT INTO-->
+        <!--tb_article(article_typeId,article_title,article_content,article_create,article_info,article_review)-->
+        <!--VALUES-->
+        <!--(#{articleTypeId},#{articleTitle},#{articleContent},#{articleCreate},#{articleInfo},#{articleReview})-->
+    <!--</insert>-->
+    <!--<update id="modifyArticle">-->
+    <!--UPDATE tb_article-->
+    <!--<set>-->
+        <!--<if test="articleTypeId!=null">article_typeId=#{articleTypeId},</if>-->
+        <!--<if test="articleTitle!=null">article_title=#{articleTitle},</if>-->
+        <!--<if test="articleContent!=null">article_content=#{articleContent}</if>-->
+        <!--<if test="articleSdTime!=null">article_sdTime=#{articleSdTime}</if>-->
+        <!--<if test="articleInfo!=null">article_info=#{articleInfo}</if>-->
+        <!--<if test="articleReview!=null">article_review=#{articleReview}</if>-->
+    <!--</set>-->
+    <!--WHERE-->
+    <!--id=#{id}-->
+<!--</update>-->
+    <!--<delete id="deleteArticle">-->
+        <!--DELETE FROM tb_article WHERE id=#{articleId}-->
+    <!--</delete>-->
+</mapper>

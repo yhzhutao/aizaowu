@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.icloudbadguy.aizaowu.dao.UserDao">
+    <select id="findUserByEmail" resultType="xyz.icloudbadguy.aizaowu.entity.User">
+        select * from demo_user where email=#{arg0}
+    </select>
+    <insert id="saveUser" parameterType="xyz.icloudbadguy.aizaowu.entity.User">
+        insert into
+            demo_user(id,nick_name,login_name,passwd,sex,birthday,email,mobile,user_name,age,is_designer,addr,headimg)
+        values
+            (#{id},#{nickName},#{loginName},#{passwd},#{sex},#{birthday},#{email},#{mobile},#{userName},#{age},#{isDesigner},#{addr},#{headimg})
+    </insert>
+    <update id="modifyPasswd">
+        update demo_user
+        set
+          passwd=#{arg1}
+        where
+          email=#{arg0}
+    </update>
+
+    <select id="findProduct" resultType="xyz.icloudbadguy.aizaowu.entity.Product">
+        select
+          *
+        FROM
+          demo_product
+    </select>
+
+    <select id="findUserById" resultType="xyz.icloudbadguy.aizaowu.entity.User">
+        select
+          *
+        from
+          demo_user
+        where
+          id=#{arg0}
+    </select>
+    <update id="alterUserById">
+        update demo_user
+        <set>
+            <if test="arg1!=null">nick_name=#{arg1},</if>
+            <if test="arg2!=null">sex=#{arg2},</if>
+            <if test="arg3!=null">birthday=#{arg3},</if>
+            <if test="arg4!=null">email=#{arg4},</if>
+            <if test="arg5!=null">mobile=#{arg5}</if>
+        </set>
+        WHERE
+          id=#{arg0}
+    </update>
+    <update id="modifyPasswdByOldPasswd">
+        update
+          demo_user
+        SET
+          passwd=#{arg1}
+        WHERE
+          id=#{arg0}
+    </update>
+    <!--<select id="queryArticleList" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article ORDER BY article_create DESC-->
+    <!--</select>-->
+    <!--<select id="queryArticleById" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article WHERE id=#{articleId}-->
+    <!--</select>-->
+    <!--<insert id="insertArticle">-->
+        <!--INSERT INTO-->
+        <!--tb_article(article_typeId,article_title,article_content,article_create,article_info,article_review)-->
+        <!--VALUES-->
+        <!--(#{articleTypeId},#{articleTitle},#{articleContent},#{articleCreate},#{articleInfo},#{articleReview})-->
+    <!--</insert>-->
+    <!--<update id="modifyArticle">-->
+    <!--UPDATE tb_article-->
+    <!--<set>-->
+        <!--<if test="articleTypeId!=null">article_typeId=#{articleTypeId},</if>-->
+        <!--<if test="articleTitle!=null">article_title=#{articleTitle},</if>-->
+        <!--<if test="articleContent!=null">article_content=#{articleContent}</if>-->
+        <!--<if test="articleSdTime!=null">article_sdTime=#{articleSdTime}</if>-->
+        <!--<if test="articleInfo!=null">article_info=#{articleInfo}</if>-->
+        <!--<if test="articleReview!=null">article_review=#{articleReview}</if>-->
+    <!--</set>-->
+    <!--WHERE-->
+    <!--id=#{id}-->
+<!--</update>-->
+    <!--<delete id="deleteArticle">-->
+        <!--DELETE FROM tb_article WHERE id=#{articleId}-->
+    <!--</delete>-->
+</mapper>

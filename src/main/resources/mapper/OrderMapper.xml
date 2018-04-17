@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.icloudbadguy.aizaowu.dao.OrderDao">
+    <select id="getOrderByuserId" resultType="xyz.icloudbadguy.aizaowu.entity.Order">
+        SELECT
+          *
+        from
+          demo_order
+        where
+          user_id=#{arg0}
+    </select>
+    <delete id="delOrder">
+        DELETE
+        FROM
+          demo_order
+        WHERE
+          id=#{arg0}
+    </delete>
+    <!--<select id="queryArticleList" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article ORDER BY article_create DESC-->
+    <!--</select>-->
+    <!--<select id="queryArticleById" resultType="com.slq.blog.entity.Article">-->
+        <!--SELECT * FROM tb_article WHERE id=#{articleId}-->
+    <!--</select>-->
+    <!--<insert id="insertArticle">-->
+        <!--INSERT INTO-->
+        <!--tb_article(article_typeId,article_title,article_content,article_create,article_info,article_review)-->
+        <!--VALUES-->
+        <!--(#{articleTypeId},#{articleTitle},#{articleContent},#{articleCreate},#{articleInfo},#{articleReview})-->
+    <!--</insert>-->
+    <!--<update id="modifyArticle">-->
+    <!--UPDATE tb_article-->
+    <!--<set>-->
+        <!--<if test="articleTypeId!=null">article_typeId=#{articleTypeId},</if>-->
+        <!--<if test="articleTitle!=null">article_title=#{articleTitle},</if>-->
+        <!--<if test="articleContent!=null">article_content=#{articleContent}</if>-->
+        <!--<if test="articleSdTime!=null">article_sdTime=#{articleSdTime}</if>-->
+        <!--<if test="articleInfo!=null">article_info=#{articleInfo}</if>-->
+        <!--<if test="articleReview!=null">article_review=#{articleReview}</if>-->
+    <!--</set>-->
+    <!--WHERE-->
+    <!--id=#{id}-->
+<!--</update>-->
+    <!--<delete id="deleteArticle">-->
+        <!--DELETE FROM tb_article WHERE id=#{articleId}-->
+    <!--</delete>-->
+</mapper>
