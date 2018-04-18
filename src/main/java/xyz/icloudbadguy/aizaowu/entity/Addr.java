@@ -1,7 +1,7 @@
 package xyz.icloudbadguy.aizaowu.entity;
 
 public class Addr {
-    private int id;
+    private long id;
     private int userId;
     private String name;
     private String mobile;
@@ -9,11 +9,11 @@ public class Addr {
     private int isDefault;
     private String postNum;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -12,6 +12,7 @@ import xyz.icloudbadguy.aizaowu.util.JsonResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -49,29 +50,31 @@ public class AddrController {
             String addr = request.getParameter("addr");
             String mobile = request.getParameter("mobile");
             String isDefault = request.getParameter("isDefault");
-//            if(userId==null||userId.trim().isEmpty()){
-//                throw new IllegalArgumentException("userId不能为空");
-//            }
-//            if(name==null||name.trim().isEmpty()){
-//                throw new IllegalArgumentException("名字不能为空");
-//            }
-//            if(area==null||area.trim().isEmpty()){
-//                throw new IllegalArgumentException("地区不能为空");
-//            }
-//            if(addr==null||addr.trim().isEmpty()){
-//                throw new IllegalArgumentException("详细地址不能为空");
-//            }
-//            if(mobile==null||addr.trim().isEmpty()){
-//                throw new IllegalArgumentException("手机号码不能为空");
-//            }
+            if(userId==null||userId.trim().isEmpty()){
+                throw new IllegalArgumentException("userId不能为空");
+            }
+            if(name==null||name.trim().isEmpty()){
+                throw new IllegalArgumentException("名字不能为空");
+            }
+            if(area==null||area.trim().isEmpty()){
+                throw new IllegalArgumentException("地区不能为空");
+            }
+            if(addr==null||addr.trim().isEmpty()){
+                throw new IllegalArgumentException("详细地址不能为空");
+            }
+            if(mobile==null||addr.trim().isEmpty()){
+                throw new IllegalArgumentException("手机号码不能为空");
+            }
             Addr addr1 = new Addr();
-            addr1.setId(Integer.parseInt(UUID.randomUUID().toString()));
+            Calendar calendar = Calendar.getInstance();
+            long addrId = calendar.getTime().getTime();
+            addr1.setId(addrId);
             addr1.setUserId(Integer.parseInt(userId));
             addr1.setName(name);
             addr1.setAddr(area+addr);
             addr1.setMobile(mobile);
             addr1.setIsDefault(Integer.parseInt(isDefault));
-            addrService.addAddrInformation(addr1);
+            System.out.println(addr1);
             return JsonResult.success();
         }catch (IllegalArgumentException e){
             return JsonResult.error(e);
