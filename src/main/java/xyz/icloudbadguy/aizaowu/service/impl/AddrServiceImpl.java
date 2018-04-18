@@ -7,6 +7,8 @@ import xyz.icloudbadguy.aizaowu.entity.Addr;
 import xyz.icloudbadguy.aizaowu.exception.AddrException;
 import xyz.icloudbadguy.aizaowu.service.AddrService;
 
+import java.util.List;
+
 @Service
 public class AddrServiceImpl implements AddrService {
 
@@ -41,5 +43,15 @@ public class AddrServiceImpl implements AddrService {
             throw new IllegalArgumentException("不存在这样的地址信息");
         }
         addrDao.delAddrByaddrId(Integer.parseInt(addrId));
+    }
+
+    @Override
+    public List<Addr> getAddrList(String userId) throws IllegalArgumentException {
+        List<Addr> list = addrDao.getAddrList(Integer.parseInt(userId));
+        if(list == null){
+            throw  new IllegalArgumentException("不存在这样的地址信息");
+        }else{
+            return list;
+        }
     }
 }

@@ -31,6 +31,14 @@
         WHERE
           id=#{arg0}
     </delete>
+    <select id="getAddrList" resultType="xyz.icloudbadguy.aizaowu.entity.Addr">
+        SELECT
+          *
+        from
+          demo_addr
+        WHERE
+          user_id=#{arg0}
+    </select>
     <!--<select id="queryArticleList" resultType="com.slq.blog.entity.Article">-->
         <!--SELECT * FROM tb_article ORDER BY article_create DESC-->
     <!--</select>-->

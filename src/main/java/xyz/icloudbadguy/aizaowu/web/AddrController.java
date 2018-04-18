@@ -15,6 +15,7 @@ import xyz.icloudbadguy.aizaowu.util.JsonResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.UUID;
 
 @CrossOrigin
@@ -30,6 +31,15 @@ public class AddrController {
             Addr addr = addrService.getAddrInformation(addrId);
             return JsonResult.success(addr);
         } catch (AddrException e) {
+            return JsonResult.error(e);
+        }
+    }
+    @GetMapping(value = "/getAddrList")
+    private Result getAddrList(String userId){
+        try{
+            List<Addr> list = addrService.getAddrList(userId);
+            return JsonResult.success(list);
+        }catch(Exception e){
             return JsonResult.error(e);
         }
     }
