@@ -14,8 +14,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDao orderDao;
     @Override
-    public List<Order> getOrder(String userId) throws OrderException {
-        List<Order> list = orderDao.getOrderByuserId(Integer.parseInt(userId));
+    public List<Order> getOrder(String userId,String status) throws OrderException {
+        List<Order> list = orderDao.getOrderByuserId(Integer.parseInt(userId),Integer.parseInt(status));
         if(list == null){
             throw new OrderException("该userId对应的订单不存在");
         }

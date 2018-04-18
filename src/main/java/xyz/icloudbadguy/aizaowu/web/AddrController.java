@@ -52,21 +52,21 @@ public class AddrController {
             String addr = request.getParameter("addr");
             String mobile = request.getParameter("mobile");
             String isDefault = request.getParameter("isDefault");
-            if(userId==null||userId.trim().isEmpty()){
-                throw new IllegalArgumentException("userId不能为空");
-            }
-            if(name==null||name.trim().isEmpty()){
-                throw new IllegalArgumentException("名字不能为空");
-            }
-            if(area==null||area.trim().isEmpty()){
-                throw new IllegalArgumentException("地区不能为空");
-            }
-            if(addr==null||addr.trim().isEmpty()){
-                throw new IllegalArgumentException("详细地址不能为空");
-            }
-            if(mobile==null||addr.trim().isEmpty()){
-                throw new IllegalArgumentException("手机号码不能为空");
-            }
+//            if(userId==null||userId.trim().isEmpty()){
+//                throw new IllegalArgumentException("userId不能为空");
+//            }
+//            if(name==null||name.trim().isEmpty()){
+//                throw new IllegalArgumentException("名字不能为空");
+//            }
+//            if(area==null||area.trim().isEmpty()){
+//                throw new IllegalArgumentException("地区不能为空");
+//            }
+//            if(addr==null||addr.trim().isEmpty()){
+//                throw new IllegalArgumentException("详细地址不能为空");
+//            }
+//            if(mobile==null||addr.trim().isEmpty()){
+//                throw new IllegalArgumentException("手机号码不能为空");
+//            }
             Addr addr1 = new Addr();
             addr1.setId(Integer.parseInt(UUID.randomUUID().toString()));
             addr1.setUserId(Integer.parseInt(userId));

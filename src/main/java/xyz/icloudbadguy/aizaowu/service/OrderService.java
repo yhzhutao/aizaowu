@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    List<Order> getOrder(String userId) throws OrderException;
+    List<Order> getOrder(String userId,String status) throws OrderException;
 
     void delOrder(String userId,String orderId);
 }

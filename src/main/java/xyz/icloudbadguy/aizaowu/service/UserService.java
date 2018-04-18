@@ -26,4 +26,6 @@ public interface UserService {
     void modifyUserInformation(User user) throws UserException;
 
     void modifyUserPasswd(String userId,String oldPasswd,String newPasswd) throws UserException, PasswdException;
+
+//    void getUserFollow(String userId);
 }

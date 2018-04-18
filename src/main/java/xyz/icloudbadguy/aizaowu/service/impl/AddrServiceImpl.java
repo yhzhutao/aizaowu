@@ -8,6 +8,7 @@ import xyz.icloudbadguy.aizaowu.exception.AddrException;
 import xyz.icloudbadguy.aizaowu.service.AddrService;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AddrServiceImpl implements AddrService {
@@ -26,9 +27,7 @@ public class AddrServiceImpl implements AddrService {
 
     @Override
     public void addAddrInformation(Addr addr1) {
-
         addrDao.addAddrInformation(addr1);
-
     }
 
     @Override

@@ -16,13 +16,16 @@ import java.util.List;
 public class OrderController {
     @Autowired
     OrderService orderService;
-    @GetMapping(value = "/getOrder")
-    private Result getOrder(String userId){
+    @GetMapping(value = "/getOrderList")
+    private Result getOrderList(String userId,String status){
         try{
             if(userId==null){
                 throw new IllegalArgumentException("userId不允许为空");
             }
-            List<Order> list = orderService.getOrder(userId);
+            if(status==null){
+                throw new IllegalArgumentException("status不能为空");
+            }
+            List<Order> list = orderService.getOrder(userId,status);
             return JsonResult.success(list);
         }catch(Exception e){
             return JsonResult.error(e);

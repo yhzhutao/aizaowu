@@ -141,4 +141,9 @@ public class UserController {
         }
 
     }
+
+//    @GetMapping(value = "/getUserFollow")
+//    private Result getUserFollow(String userId){
+//        userService.getUserFollow(userId);
+//    }
 }

@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService{
     private static final String KEY = "abc123"; // KEY为自定义秘钥
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
     @Override
     public User login(String email, String password) throws NameOrPasswordException{
         User user = userDao.findUserByEmail(email);
@@ -137,5 +137,11 @@ public class UserServiceImpl implements UserService{
             throw new PasswdException("密码验证出错");
         }
     }
+
+//    @Override
+//    public void getUserFollow(String userId) {
+//        User user = userDao.findUserById(Integer.parseInt(userId));
+//
+//    }
 
 }

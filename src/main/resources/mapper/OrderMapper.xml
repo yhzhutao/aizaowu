@@ -10,6 +10,7 @@
           demo_order
         where
           user_id=#{arg0}
+          and status=#{arg1}
     </select>
     <delete id="delOrder">
         DELETE
