@@ -74,7 +74,7 @@ public class AddrController {
             addr1.setAddr(area+addr);
             addr1.setMobile(mobile);
             addr1.setIsDefault(Integer.parseInt(isDefault));
-            System.out.println(addr1);
+            addrService.addAddrInformation(addr1);
             return JsonResult.success();
         }catch (IllegalArgumentException e){
             return JsonResult.error(e);
