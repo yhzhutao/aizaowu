@@ -1,11 +1,8 @@
 package xyz.icloudbadguy.aizaowu.web;
 
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.icloudbadguy.aizaowu.entity.Addr;
 import xyz.icloudbadguy.aizaowu.entity.Result;

@@ -3,7 +3,6 @@ package xyz.icloudbadguy.aizaowu.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
-import xyz.icloudbadguy.aizaowu.entity.Product;
 import xyz.icloudbadguy.aizaowu.entity.Result;
 import xyz.icloudbadguy.aizaowu.entity.User;
 import xyz.icloudbadguy.aizaowu.exception.CodeException;
@@ -13,13 +12,8 @@ import xyz.icloudbadguy.aizaowu.exception.UserIdException;
 import xyz.icloudbadguy.aizaowu.service.UserService;
 import xyz.icloudbadguy.aizaowu.util.JsonResult;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.security.GeneralSecurityException;
-import java.util.List;
-import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -27,7 +21,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value="/user/login")
+    @GetMapping(value="/user/login")
     private Result login(String email, String password){
         try{
             if(email==null||email.trim().isEmpty()){
