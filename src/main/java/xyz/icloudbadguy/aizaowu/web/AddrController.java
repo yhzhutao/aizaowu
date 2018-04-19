@@ -81,7 +81,7 @@ public class AddrController {
             return JsonResult.error(e);
         }
     }
-    @GetMapping(value = "/modifyAddrInformation")
+        @GetMapping(value = "/modifyAddrInformation")
     private Result modifyAddrInformation(HttpServletRequest request,HttpServletResponse response){
         try{
             String id = request.getParameter("id");
@@ -110,7 +110,7 @@ public class AddrController {
                 throw new IllegalArgumentException("手机号码不能为空");
             }
             Addr addr1 = new Addr();
-            addr1.setId(Integer.parseInt(id));
+            addr1.setId(Long.parseLong(id));
             addr1.setUserId(Integer.parseInt(userId));
             addr1.setName(name);
             addr1.setAddr(area+addr);
