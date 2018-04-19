@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface AddrDao {
 
-    Addr getAddrInformationById(int addrId);
+    Addr getAddrInformationById(long addrId);
 
     void addAddrInformation(Addr addr1);
 
     void modifyAddrInformation(Addr addr1);
 
-    void delAddrByaddrId(int addrId);
+    void delAddrByaddrId(long addrId);
 
-    List<Addr> getAddrList(int userId);
+    List<Addr> getAddrList(long userId);
 }

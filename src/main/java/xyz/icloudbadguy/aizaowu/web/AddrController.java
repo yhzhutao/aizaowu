@@ -125,6 +125,7 @@ public class AddrController {
 
     @GetMapping(value = "/delAddrInformation")
     private Result delAddrInformation(String addrId){
+        System.out.println(addrId);
         try{
             addrService.delAddrInformation(addrId);
             return JsonResult.success();
