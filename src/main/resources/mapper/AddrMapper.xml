@@ -14,7 +14,7 @@
     <insert id="addAddrInformation" parameterType="xyz.icloudbadguy.aizaowu.entity.Addr">
         insert INTO
           demo_addr
-        values(#{id},#{userId},#{name},#{mobile},#{addr},#{isDefault},#{postNum})
+        values(#{id},#{userId},#{name},#{mobile},#{area},#{addr},#{isDefault},#{postNum})
     </insert>
     <update id="modifyAddrInformation" parameterType="xyz.icloudbadguy.aizaowu.entity.Addr">
         update

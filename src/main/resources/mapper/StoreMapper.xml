@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.icloudbadguy.aizaowu.dao.StoreDao">
+    <select id="getStoreByUserId" resultType="java.lang.String">
+        select
+          pic_url
+        from
+          demo_store
+        where
+          user_id=#{arg0}
+    </select>
+    <delete id="delStoreByStoreId">
+        DELETE
+        FROM
+          demo_store
+        WHERE
+          id=#{arg0}
+    </delete>
+    <select id="findStoreByStoreId" resultType="xyz.icloudbadguy.aizaowu.entity.Store">
+        SELECT
+          *
+        FROM
+          demo_store
+        WHERE
+          id=#{arg0}
+    </select>
+</mapper>

@@ -38,7 +38,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(value = "/user/registe")
+    @GetMapping(value = "/user/registe")
     private Result register(HttpServletRequest request, HttpServletResponse response){
         try {
             String email = request.getParameter("email");

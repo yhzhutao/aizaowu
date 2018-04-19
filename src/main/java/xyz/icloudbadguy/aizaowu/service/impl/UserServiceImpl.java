@@ -48,7 +48,9 @@ public class UserServiceImpl implements UserService{
             if(user==null){
                 user = new User();
                 user.setEmail(email);
-                user.setPasswd(passwd);
+                String passWord = Md5Utils.encodeByMD5(passwd);
+                System.out.println(passWord);
+                user.setPasswd(passWord);
                 userDao.saveUser(user);
             }else{
                 throw new UserException("该用户已存在");

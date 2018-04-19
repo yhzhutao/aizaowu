@@ -5,6 +5,7 @@ public class Addr {
     private int userId;
     private String name;
     private String mobile;
+    private String area;
     private String addr;
     private int isDefault;
     private String postNum;
@@ -65,6 +66,14 @@ public class Addr {
         this.postNum = postNum;
     }
 
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
     @Override
     public String toString() {
         return "Addr{" +
@@ -72,6 +81,7 @@ public class Addr {
                 ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", mobile='" + mobile + '\'' +
+                ", area='" + area + '\'' +
                 ", addr='" + addr + '\'' +
                 ", isDefault=" + isDefault +
                 ", postNum='" + postNum + '\'' +
