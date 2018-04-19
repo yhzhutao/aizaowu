@@ -24,7 +24,7 @@ public class AddrController {
     private AddrService addrService;
 
     @GetMapping(value = "/getAddrInformation")
-    private Result getAddrInformation(int addrId){
+    private Result getAddrInformation(String addrId){
         try {
             Addr addr = addrService.getAddrInformation(addrId);
             return JsonResult.success(addr);
@@ -33,7 +33,7 @@ public class AddrController {
         }
     }
     @GetMapping(value = "/getAddrList")
-    private Result getAddrList(int userId){
+    private Result getAddrList(String userId){
         try{
             List<Addr> list = addrService.getAddrList(userId);
             return JsonResult.success(list);
@@ -124,7 +124,7 @@ public class AddrController {
     }
 
     @GetMapping(value = "/delAddrInformation")
-    private Result delAddrInformation(int addrId){
+    private Result delAddrInformation(String addrId){
         try{
             addrService.delAddrInformation(addrId);
             return JsonResult.success();

@@ -26,6 +26,7 @@ public class EmailController {
             String email = request.getParameter("email");
             String type = request.getParameter("type"); //type="0" 代表注册 type=1 代表修改密码
             String code = emailService.sendEmailCode(email,type);
+            System.out.println(code);
             Jedis jedis = new Jedis("localhost");
             jedis.set(email,code);
 //            HttpSession session = request.getSession();

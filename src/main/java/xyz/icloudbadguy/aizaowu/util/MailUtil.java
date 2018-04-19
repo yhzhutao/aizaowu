@@ -38,7 +38,6 @@ public class MailUtil {
                 return new PasswordAuthentication("864281412@qq.com","klwtnszmnumbbccc");
             }
         });
-        System.out.println(session);
         //创建邮件对象
         Message message = new MimeMessage(session);
         //设置发件人

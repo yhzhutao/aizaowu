@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface AddrService {
 
-    Addr getAddrInformation(int addrId) throws AddrException;
+    Addr getAddrInformation(String addrId) throws AddrException;
 
     void addAddrInformation(Addr addr1);
 
     void modifyAddrInformation(Addr addr1);
 
-    void delAddrInformation(int addrId) throws IllegalArgumentException;
+    void delAddrInformation(String addrId) throws IllegalArgumentException;
 
-    List<Addr> getAddrList(int userId) throws IllegalArgumentException;
+    List<Addr> getAddrList(String userId) throws IllegalArgumentException;
 }

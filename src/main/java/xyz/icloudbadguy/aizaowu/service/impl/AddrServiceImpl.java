@@ -17,8 +17,8 @@ public class AddrServiceImpl implements AddrService {
     private AddrDao addrDao;
 
     @Override
-    public Addr getAddrInformation(int addrId) throws AddrException {
-        Addr addr = addrDao.getAddrInformationById(addrId);
+    public Addr getAddrInformation(String addrId) throws AddrException {
+        Addr addr = addrDao.getAddrInformationById(Integer.parseInt(addrId));
         if(addr==null){
             throw new AddrException("该地址不存在");
         }
@@ -36,17 +36,17 @@ public class AddrServiceImpl implements AddrService {
     }
 
     @Override
-    public void delAddrInformation(int addrId) throws IllegalArgumentException {
-        Addr addr = addrDao.getAddrInformationById(addrId);
+    public void delAddrInformation(String addrId) throws IllegalArgumentException {
+        Addr addr = addrDao.getAddrInformationById(Integer.parseInt(addrId));
         if(addr==null){
             throw new IllegalArgumentException("不存在这样的地址信息");
         }
-        addrDao.delAddrByaddrId(addrId);
+        addrDao.delAddrByaddrId(Integer.parseInt(addrId));
     }
 
     @Override
-    public List<Addr> getAddrList(int userId) throws IllegalArgumentException {
-        List<Addr> list = addrDao.getAddrList(userId);
+    public List<Addr> getAddrList(String userId) throws IllegalArgumentException {
+        List<Addr> list = addrDao.getAddrList(Integer.parseInt(userId));
         if(list == null){
             throw  new IllegalArgumentException("不存在这样的地址信息");
         }else{

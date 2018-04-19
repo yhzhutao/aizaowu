@@ -32,8 +32,19 @@ public class OrderController {
         }
     }
 
+    @GetMapping(value = "/delOrder")
     private Result delOrder(String userId,String orderId){
-        orderService.delOrder(userId,orderId);
-        return null;
+        try{
+            if(userId==null||userId.trim().isEmpty()){
+                throw new IllegalArgumentException("userId不允许为空");
+            }
+            if(orderId==null||orderId.trim().isEmpty()){
+                throw new IllegalArgumentException("orderId不允许为空");
+            }
+            orderService.delOrder(userId,orderId);
+            return JsonResult.success();
+        }catch(Exception e){
+            return JsonResult.error(e);
+        }
     }
 }
