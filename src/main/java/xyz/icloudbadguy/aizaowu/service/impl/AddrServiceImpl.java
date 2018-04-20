@@ -32,7 +32,13 @@ public class AddrServiceImpl implements AddrService {
 
     @Override
     public void modifyAddrInformation(Addr addr1) {
-        addrDao.modifyAddrInformation(addr1);
+        Addr addr = addrDao.getAddrInformationById(addr1.getId());
+        if(addr==null){
+            throw new IllegalArgumentException("需要修改的地址信息不存在");
+        }else{
+            addrDao.modifyAddrInformation(addr1);
+        }
+
     }
 
     @Override

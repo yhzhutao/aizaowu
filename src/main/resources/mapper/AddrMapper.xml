@@ -19,8 +19,15 @@
     <update id="modifyAddrInformation" parameterType="xyz.icloudbadguy.aizaowu.entity.Addr">
         update
           demo_addr
-        SET
-          user_id=#{userId},`name`=#{name},mobile=#{mobile},addr=#{addr},is_default=#{isDefault},post_num=#{postNum}
+        <set>
+            <if test="userId!=null">user_id=#{userId},</if>
+            <if test="name!=null">`name`=#{name},</if>
+            <if test="mobile!=null">mobile=#{mobile},</if>
+            <if test="area!=null">area=#{area},</if>
+            <if test="addr!=null">addr=#{addr},</if>
+            <if test="isDefault!=null">is_default=#{isDefault},</if>
+            <if test="postNum!=null">post_num=#{postNum}</if>
+        </set>
         WHERE
           id=#{id}
     </update>

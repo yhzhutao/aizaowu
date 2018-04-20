@@ -81,7 +81,8 @@ public class AddrController {
             return JsonResult.error(e);
         }
     }
-        @GetMapping(value = "/modifyAddrInformation")
+
+    @GetMapping(value = "/modifyAddrInformation")
     private Result modifyAddrInformation(HttpServletRequest request,HttpServletResponse response){
         try{
             String id = request.getParameter("id");
@@ -92,30 +93,20 @@ public class AddrController {
             String mobile = request.getParameter("mobile");
             String isDefault = request.getParameter("isDefault");
             if(id==null||id.trim().isEmpty()){
-                throw new IllegalArgumentException("id不能为空");
-            }
-            if(userId==null||userId.trim().isEmpty()){
-                throw new IllegalArgumentException("userId不能为空");
-            }
-            if(name==null||name.trim().isEmpty()){
-                throw new IllegalArgumentException("名字不能为空");
-            }
-            if(area==null||area.trim().isEmpty()){
-                throw new IllegalArgumentException("地区不能为空");
-            }
-            if(addr==null||addr.trim().isEmpty()){
-                throw new IllegalArgumentException("详细地址不能为空");
-            }
-            if(mobile==null||addr.trim().isEmpty()){
-                throw new IllegalArgumentException("手机号码不能为空");
+                throw new IllegalArgumentException("id不允许为空");
             }
             Addr addr1 = new Addr();
             addr1.setId(Long.parseLong(id));
-            addr1.setUserId(Integer.parseInt(userId));
+            if(userId!=null){
+                addr1.setUserId(Integer.parseInt(userId));
+            }
             addr1.setName(name);
-            addr1.setAddr(area+addr);
+            addr1.setArea(area);
+            addr1.setAddr(addr);
             addr1.setMobile(mobile);
-            addr1.setIsDefault(Integer.parseInt(isDefault));
+            if(isDefault!=null){
+                addr1.setIsDefault(Integer.parseInt(isDefault));
+            }
             addrService.modifyAddrInformation(addr1);
             return JsonResult.success();
         }catch(IllegalArgumentException e){
