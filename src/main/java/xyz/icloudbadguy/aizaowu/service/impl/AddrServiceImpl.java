@@ -35,6 +35,14 @@ public class AddrServiceImpl implements AddrService {
         Addr addr = addrDao.getAddrInformationById(addr1.getId());
         if(addr==null){
             throw new IllegalArgumentException("需要修改的地址信息不存在");
+        }else if(addr1.getIsDefault()==1){
+            List<Addr> list = addrDao.getAddrList(addr.getUserId());
+            for(Addr addr2 : list){
+                addr2.setIsDefault(0);
+                addrDao.modifyAddrInformation(addr2);
+            }
+            addr1.setUserId(addr.getUserId());
+            addrDao.modifyAddrInformation(addr1);
         }else{
             addrDao.modifyAddrInformation(addr1);
         }
